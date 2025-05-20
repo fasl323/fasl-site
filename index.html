@@ -1,33 +1,98 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>منصة فصل</title>
   <style>
     body {
-      font-family: sans-serif;
-      text-align: center;
-      margin-top: 100px;
-      background: #f0f0f0;
-    }
-    h1 {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
       color: #1a1a1a;
     }
-    button {
-      background-color: #0066cc;
+
+    header {
+      background-color: #003f5c;
       color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 18px;
+      padding: 15px 30px;
+      text-align: right;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+      gap: 20px;
+    }
+
+    .section {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 30px;
+      width: 300px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    .section h2 {
+      color: #003f5c;
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      font-size: 15px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .section a {
+      text-decoration: none;
+      background-color: #003f5c;
+      color: white;
+      padding: 10px 25px;
       border-radius: 6px;
-      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .section a:hover {
+      background-color: #005b85;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>مرحبًا بك في منصة فصل</h1>
-  <button onclick="alert('تم الضغط على تسجيل الدخول')">تسجيل الدخول</button>
+
+  <header>
+    منصة فصل
+  </header>
+
+  <div class="container">
+
+    <div class="section">
+      <h2>المعلم</h2>
+      <p>أنشئ دورتك، وارفع ملفاتك، وابدأ البث المباشر وتابع الطلاب بسهولة.</p>
+      <a href="register.html">تسجيل كمعلم</a>
+    </div>
+
+    <div class="section">
+      <h2>الطالب</h2>
+      <p>سجل دخولك لمتابعة دروسك، مشاهدة الشروحات، والالتحاق بالبثوث المباشرة.</p>
+      <a href="register.html">تسجيل كطالب</a>
+    </div>
+
+  </div>
+
 </body>
 </html>
