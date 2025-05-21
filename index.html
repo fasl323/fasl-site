@@ -16,7 +16,7 @@
     }
 
     .header {
-      height: 80px; /* ارتفاع الهيدر الجديد */
+      height: 80px;
       background-color: #b2ddeb;
       display: flex;
       align-items: center;
@@ -24,9 +24,9 @@
     }
 
     .header img {
-      height: 79px; /* ارتفاع الشعار الجديد */
-      width: auto;
-      max-width: none;
+      height: 79px;
+      width: 180px; /* عرض مخصص وموسع +50 بكسل تقريباً */
+      object-fit: contain; /* يحافظ على الشكل بدون تمدد غير طبيعي */
     }
 
     .main {
@@ -43,13 +43,13 @@
     }
 
     .btn {
-      padding: 18px 32px;
       font-size: 18px;
-      border: none;
+      padding: 14px 32px;
       border-radius: 16px;
+      min-width: 180px;
+      border: none;
       cursor: pointer;
       transition: 0.3s;
-      min-width: 180px;
     }
 
     .btn.learn {
@@ -69,10 +69,12 @@
 </head>
 <body>
 
+  <!-- الهيدر -->
   <div class="header">
     <img src="logo.png" alt="شعار فصل">
   </div>
 
+  <!-- المحتوى -->
   <div class="main">
     <div class="buttons">
       <button class="btn learn" onclick="window.location.href='/signup-student'">ابدأ التعلم</button>
