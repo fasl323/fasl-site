@@ -1,230 +1,155 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>فصل</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      font-family: 'Tajawal', sans-serif;
-      background-color: #fffdfa;
-      color: #0d2c44;
+      background-color: #fffdf8;
+      color: #002233;
     }
-
-    /* الهيدر */
-    .header {
+    header {
+      background-color: #b3d7e6;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #b0d9e8;
       padding: 10px 20px;
       height: 65px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
     }
-
     .logo {
       height: 63px;
     }
-
-    .menu-btn {
+    nav {
+      display: none;
+    }
+    .menu-toggle {
       background: none;
       border: none;
-      font-size: 26px;
-      cursor: pointer;
-    }
-
-    /* القائمة الجانبية */
-    .side-menu {
-      position: fixed;
-      top: 0;
-      right: -280px;
-      width: 260px;
-      height: 100%;
-      background-color: white;
-      box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-      transition: right 0.3s ease;
-      padding: 20px;
-      z-index: 2000;
-    }
-
-    .side-menu.open {
-      right: 0;
-    }
-
-    .side-menu .close-btn {
-      font-size: 24px;
-      cursor: pointer;
-      margin-bottom: 20px;
-      border: none;
-      background: none;
-    }
-
-    .side-menu ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .side-menu ul li {
-      margin: 15px 0;
-      cursor: pointer;
-    }
-
-    .hero {
-      padding: 80px 20px 40px;
-      text-align: center;
-    }
-
-    .hero h1 {
       font-size: 28px;
-      margin-bottom: 20px;
+      cursor: pointer;
     }
-
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 40px;
-      font-weight: 300;
+    .container {
+      text-align: center;
+      padding: 30px 20px;
     }
-
-    .button-group {
+    h1 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .buttons {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      gap: 15px;
+      margin: 20px 0;
     }
-
     .btn {
-      padding: 14px 24px;
+      padding: 12px 20px;
       border: none;
-      border-radius: 12px;
-      font-size: 17px;
+      border-radius: 10px;
+      font-size: 16px;
       cursor: pointer;
-      min-width: 140px;
-      text-align: center;
     }
-
     .btn-primary {
-      background-color: #0d2c44;
+      background-color: #0d1b2a;
       color: white;
     }
-
     .btn-secondary {
-      background-color: #d6f6f8;
-      color: #0d2c44;
-      border: 1px solid #b0d9e8;
+      background-color: #d4f8f6;
+      color: #0d1b2a;
     }
-
-    .section {
-      padding: 60px 20px 30px;
-      text-align: center;
+    section {
+      margin: 40px 0;
     }
-
-    .section h2 {
-      font-size: 24px;
+    h2 {
+      font-size: 20px;
       margin-bottom: 10px;
+      font-weight: bold;
     }
-
-    .section p {
-      font-size: 16px;
-      font-weight: 300;
-      max-width: 600px;
-      margin: auto;
+    p {
+      font-size: 15px;
+      margin: 5px 0;
     }
-
-    .payment-logos {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
+    .payments img {
+      height: 30px;
+      margin: 5px;
     }
-
-    .payment-logos img {
-      height: 35px;
+    @media (min-width: 768px) {
+      nav {
+        display: flex !important;
+        gap: 15px;
+      }
+      .menu-toggle {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- الهيدر -->
-  <div class="header">
-    <img src="logo.png" alt="شعار فصل" class="logo">
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+<header>
+  <img src="شعارك.png" alt="شعار فصل" class="logo" />
+  <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+  <nav id="nav-menu">
+    <a href="#video">فيديو تعريفي</a>
+    <a href="#broadcasts">البثوث</a>
+    <a href="#payments">طرق الدفع</a>
+    <a href="#start">ابدأ التعلم</a>
+    <a href="#create">أنشئ دورتك</a>
+    <a href="#" onclick="changeLanguage()">EN</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h1><strong>فصل... لأن التعليم يستحق أن يُكافأ</strong></h1>
+  <p>أنشئ دورتك، قدم بثوثك المباشرة، وابدأ محتواك بسهولة في مكان واحد.</p>
+  <div class="buttons">
+    <button class="btn btn-primary">ابدأ التعلم</button>
+    <button class="btn btn-secondary">أنشئ دورتك</button>
   </div>
 
-  <!-- القائمة الجانبية -->
-  <div id="sideMenu" class="side-menu">
-    <button class="close-btn" onclick="toggleMenu()">×</button>
-    <ul>
-      <li onclick="scrollToSection('video')">فيديو تعريفي</li>
-      <li onclick="scrollToSection('streams')">البثوث المباشرة</li>
-      <li onclick="scrollToSection('tools')">أدوات الصناعة</li>
-      <li onclick="scrollToSection('payments')">طرق الدفع</li>
-      <li><a href="plans.html">الباقات</a></li>
-      <li><a href="#start">ابدأ التعلم</a></li>
-      <li><a href="#start">أنشئ دورتك</a></li>
-      <li onclick="changeLanguage()">English</li>
-    </ul>
-  </div>
-
-  <!-- النبذة -->
-  <div class="hero">
-    <h1>فصل... لأن التعليم يستحق أن يُكافأ</h1>
-    <p>أنشئ دورتك، قدّم بثوثك المباشرة، وابدأ محتواك بسهولة في مكان واحد.</p>
-    <div class="button-group" id="start">
-      <button class="btn btn-primary">ابدأ التعلم</button>
-      <button class="btn btn-secondary">أنشئ دورتك</button>
-    </div>
-  </div>
-
-  <!-- الأقسام -->
-  <div class="section" id="video">
+  <section id="video">
     <h2>طريقة استخدام فصل</h2>
     <p>شاهد كيف تبدأ في دقائق</p>
-  </div>
+  </section>
 
-  <div class="section" id="streams">
+  <section id="broadcasts">
     <h2>البثوث المباشرة</h2>
     <p>قدّم محتواك بشكل مباشر وفعّال لجمهورك في أي وقت.</p>
-  </div>
+  </section>
 
-  <div class="section" id="tools">
+  <section>
     <h2>أدوات الصناعة</h2>
     <p>استخدم أدوات تصميم ورفع محتوى تساعدك في بناء تجربة مميزة.</p>
-  </div>
+  </section>
 
-  <div class="section" id="payments">
+  <section id="payments">
     <h2>طرق الدفع</h2>
     <p>نقبل أهم وسائل الدفع لتسهيل عملياتك.</p>
-    <div class="payment-logos">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Pay">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/STC_Pay_Logo.svg" alt="STC Pay">
+    <div class="payments">
+      <img src="stcpay.png" alt="STC Pay">
+      <img src="tabby.png" alt="Tabby">
+      <img src="tamara.png" alt="Tamara">
+      <img src="applepay.png" alt="Apple Pay">
+      <img src="mastercard.png" alt="Mastercard">
+      <img src="visa.png" alt="Visa">
     </div>
-  </div>
+  </section>
+</div>
 
-  <script>
-    function toggleMenu() {
-      document.getElementById("sideMenu").classList.toggle("open");
-    }
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('nav-menu');
+    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+  }
 
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-      toggleMenu();
-    }
-
-    function changeLanguage() {
-      alert("سيتم تحويل اللغة إلى الإنجليزية (وظيفة تجريبية)");
-      // هنا تقدر تستخدم window.location.href = 'index-en.html' إذا كان فيه نسخة إنجليزية
-    }
-  </script>
+  function changeLanguage() {
+    alert("سيتم تحويلك إلى النسخة الإنجليزية قريبًا");
+  }
+</script>
 
 </body>
 </html>
