@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>فصل</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Tajawal', sans-serif;
+      background-color: #fdfaf4;
+      color: #0d2c44;
+      scroll-behavior: smooth;
+    }
+
+    /* الهيدر */
+    .header {
+      height: 80px;
+      background-color: #b2ddeb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .logo {
+      height: 79px;
+    }
+
+    .menu-btn {
+      font-size: 30px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* القائمة الجانبية */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 260px;
+      height: 100%;
+      background-color: #ffffff;
+      box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+      transition: right 0.3s ease;
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .sidebar.open {
+      right: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      margin: 16px 0;
+      font-size: 18px;
+      color: #0d2c44;
+      text-decoration: none;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 8px;
+    }
+
+    /* نبذة */
+    .intro {
+      text-align: center;
+      margin: 60px 20px 30px;
+    }
+
+    .intro h1 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .intro p {
+      font-size: 18px;
+      color: #333;
+    }
+
+    /* أزرار */
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    .btn {
+      font-size: 18px;
+      font-weight: bold;
+      padding: 14px 32px;
+      min-width: 180px;
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background-color: #0d2c44;
+      color: white;
+    }
+
+    .btn-outline {
+      background-color: #dbfbfb;
+      color: #0d2c44;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    section p, ul {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li::before {
+      content: "• ";
+      color: #0d2c44;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- الهيدر -->
+  <div class="header">
+    <img src="logo.png" alt="شعار فصل" class="logo">
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+  </div>
+
+  <!-- القائمة الجانبية -->
+  <div id="sidebar" class="sidebar">
+    <a href="#">اللغة: English</a>
+    <a href="#">الرئيسية</a>
+    <a href="#intro-video">فيديو تعريفي</a>
+    <a href="#livestreams">البثوث المباشرة</a>
+    <a href="#payments">طرق الدفع</a>
+    <a href="#tools">أدوات صناعة الدورات</a>
+    <a href="#plans">الباقات</a>
+    <a href="/signup-student">ابدأ التعلم</a>
+    <a href="/signup-teacher">أنشئ دورتك</a>
+  </div>
+
+  <!-- النبذة -->
+  <div class="intro">
+    <h1>فصل... لأن التعليم يستحق أن يُكافأ</h1>
+    <p>أنشئ دورتك، قدّم بثوثك المباشرة، وابدأ بيع محتواك بسهولة في مكان واحد.</p>
+  </div>
+
+  <!-- الأزرار -->
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="location.href='/signup-student'">ابدأ التعلم</button>
+    <button class="btn btn-outline" onclick="location.href='/signup-teacher'">أنشئ دورتك</button>
+  </div>
+
+  <!-- فيديو تعريفي -->
+  <section id="intro-video">
+    <h2>طريقة استخدام فصل</h2>
+    <p>شاهد كيف تبدأ في دقائق</p>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+  </section>
+
+  <!-- البثوث -->
+  <section id="livestreams">
+    <h2>البثوث المباشرة</h2>
+    <p>قدّم دروسك في بث مباشر وابقَ قريبًا من طلابك، مع أدوات تفاعل ودعم فوري.</p>
+  </section>
+
+  <!-- طرق الدفع -->
+  <section id="payments">
+    <h2>طرق الدفع المتاحة</h2>
+    <p>نوفر لعملائك خيارات دفع متنوعة وسهلة وآمنة، منها:</p>
+    <ul>
+      <li>بطاقات مدى</li>
+      <li>Visa / MasterCard</li>
+      <li>Apple Pay</li>
+      <li>STC Pay</li>
+      <li>تابي - تمارا (ادفع لاحقًا)</li>
+    </ul>
+  </section>
+
+  <!-- أدوات المعلم -->
+  <section id="tools">
+    <h2>أدوات صناعة الدورات</h2>
+    <p>نقدّم لك أدوات قوية لإنشاء محتوى تعليمي احترافي يشمل الفيديو، الملفات، الاختبارات، والتقارير الذكية.</p>
+  </section>
+
+  <!-- الباقات (رابط فقط الآن) -->
+  <section id="plans">
+    <h2>الباقات</h2>
+    <p>تعرّف على باقاتنا وخيارات العمولة المناسبة لك <a href="/pricing.html">من هنا</a>.</p>
+  </section>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+  </script>
+
+</body>
+</html>
