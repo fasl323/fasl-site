@@ -1,101 +1,111 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>فصل</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Tajawal', sans-serif;
-      background-color: #fdfaf4;
+      background-color: #fffdfa;
       color: #0d2c44;
-      scroll-behavior: smooth;
     }
 
     /* الهيدر */
     .header {
-      height: 80px;
-      background-color: #b2ddeb;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 0 20px;
+      align-items: center;
+      background-color: #b0d9e8;
+      padding: 10px 20px;
+      height: 65px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .logo {
-      height: 79px;
+      height: 63px;
     }
 
     .menu-btn {
-      font-size: 30px;
       background: none;
       border: none;
+      font-size: 26px;
       cursor: pointer;
     }
 
     /* القائمة الجانبية */
-    .sidebar {
+    .side-menu {
       position: fixed;
       top: 0;
-      right: -300px;
+      right: -280px;
       width: 260px;
       height: 100%;
-      background-color: #ffffff;
-      box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.1);
       transition: right 0.3s ease;
       padding: 20px;
-      z-index: 1000;
+      z-index: 2000;
     }
 
-    .sidebar.open {
+    .side-menu.open {
       right: 0;
     }
 
-    .sidebar a {
-      display: block;
-      margin: 16px 0;
-      font-size: 18px;
-      color: #0d2c44;
-      text-decoration: none;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 8px;
+    .side-menu .close-btn {
+      font-size: 24px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      border: none;
+      background: none;
     }
 
-    /* نبذة */
-    .intro {
+    .side-menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .side-menu ul li {
+      margin: 15px 0;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 80px 20px 40px;
       text-align: center;
-      margin: 60px 20px 30px;
     }
 
-    .intro h1 {
+    .hero h1 {
       font-size: 28px;
-      margin-bottom: 12px;
+      margin-bottom: 20px;
     }
 
-    .intro p {
+    .hero p {
       font-size: 18px;
-      color: #333;
+      margin-bottom: 40px;
+      font-weight: 300;
     }
 
-    /* أزرار */
-    .btn-group {
+    .button-group {
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 60px;
     }
 
     .btn {
-      font-size: 18px;
-      font-weight: bold;
-      padding: 14px 32px;
-      min-width: 180px;
+      padding: 14px 24px;
       border: none;
-      border-radius: 16px;
+      border-radius: 12px;
+      font-size: 17px;
       cursor: pointer;
-      transition: 0.3s;
+      min-width: 140px;
+      text-align: center;
     }
 
     .btn-primary {
@@ -103,40 +113,39 @@
       color: white;
     }
 
-    .btn-outline {
-      background-color: #dbfbfb;
+    .btn-secondary {
+      background-color: #d6f6f8;
       color: #0d2c44;
+      border: 1px solid #b0d9e8;
     }
 
-    .btn:hover {
-      opacity: 0.9;
-    }
-
-    section {
-      padding: 60px 20px;
+    .section {
+      padding: 60px 20px 30px;
       text-align: center;
     }
 
-    section h2 {
-      font-size: 26px;
-      margin-bottom: 20px;
+    .section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
     }
 
-    section p, ul {
-      font-size: 17px;
-      line-height: 1.8;
-      color: #444;
+    .section p {
+      font-size: 16px;
+      font-weight: 300;
+      max-width: 600px;
+      margin: auto;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
+    .payment-logos {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
-    ul li::before {
-      content: "• ";
-      color: #0d2c44;
-      font-weight: bold;
+    .payment-logos img {
+      height: 35px;
     }
   </style>
 </head>
@@ -145,75 +154,75 @@
   <!-- الهيدر -->
   <div class="header">
     <img src="logo.png" alt="شعار فصل" class="logo">
-    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
   </div>
 
   <!-- القائمة الجانبية -->
-  <div id="sidebar" class="sidebar">
-    <a href="#">اللغة: English</a>
-    <a href="#">الرئيسية</a>
-    <a href="#intro-video">فيديو تعريفي</a>
-    <a href="#livestreams">البثوث المباشرة</a>
-    <a href="#payments">طرق الدفع</a>
-    <a href="#tools">أدوات صناعة الدورات</a>
-    <a href="#plans">الباقات</a>
-    <a href="/signup-student">ابدأ التعلم</a>
-    <a href="/signup-teacher">أنشئ دورتك</a>
+  <div id="sideMenu" class="side-menu">
+    <button class="close-btn" onclick="toggleMenu()">×</button>
+    <ul>
+      <li onclick="scrollToSection('video')">فيديو تعريفي</li>
+      <li onclick="scrollToSection('streams')">البثوث المباشرة</li>
+      <li onclick="scrollToSection('tools')">أدوات الصناعة</li>
+      <li onclick="scrollToSection('payments')">طرق الدفع</li>
+      <li><a href="plans.html">الباقات</a></li>
+      <li><a href="#start">ابدأ التعلم</a></li>
+      <li><a href="#start">أنشئ دورتك</a></li>
+      <li onclick="changeLanguage()">English</li>
+    </ul>
   </div>
 
   <!-- النبذة -->
-  <div class="intro">
+  <div class="hero">
     <h1>فصل... لأن التعليم يستحق أن يُكافأ</h1>
-    <p>أنشئ دورتك، قدّم بثوثك المباشرة، وابدأ بيع محتواك بسهولة في مكان واحد.</p>
+    <p>أنشئ دورتك، قدّم بثوثك المباشرة، وابدأ محتواك بسهولة في مكان واحد.</p>
+    <div class="button-group" id="start">
+      <button class="btn btn-primary">ابدأ التعلم</button>
+      <button class="btn btn-secondary">أنشئ دورتك</button>
+    </div>
   </div>
 
-  <!-- الأزرار -->
-  <div class="btn-group">
-    <button class="btn btn-primary" onclick="location.href='/signup-student'">ابدأ التعلم</button>
-    <button class="btn btn-outline" onclick="location.href='/signup-teacher'">أنشئ دورتك</button>
-  </div>
-
-  <!-- فيديو تعريفي -->
-  <section id="intro-video">
+  <!-- الأقسام -->
+  <div class="section" id="video">
     <h2>طريقة استخدام فصل</h2>
     <p>شاهد كيف تبدأ في دقائق</p>
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-  </section>
+  </div>
 
-  <!-- البثوث -->
-  <section id="livestreams">
+  <div class="section" id="streams">
     <h2>البثوث المباشرة</h2>
-    <p>قدّم دروسك في بث مباشر وابقَ قريبًا من طلابك، مع أدوات تفاعل ودعم فوري.</p>
-  </section>
+    <p>قدّم محتواك بشكل مباشر وفعّال لجمهورك في أي وقت.</p>
+  </div>
 
-  <!-- طرق الدفع -->
-  <section id="payments">
-    <h2>طرق الدفع المتاحة</h2>
-    <p>نوفر لعملائك خيارات دفع متنوعة وسهلة وآمنة، منها:</p>
-    <ul>
-      <li>بطاقات مدى</li>
-      <li>Visa / MasterCard</li>
-      <li>Apple Pay</li>
-      <li>STC Pay</li>
-      <li>تابي - تمارا (ادفع لاحقًا)</li>
-    </ul>
-  </section>
+  <div class="section" id="tools">
+    <h2>أدوات الصناعة</h2>
+    <p>استخدم أدوات تصميم ورفع محتوى تساعدك في بناء تجربة مميزة.</p>
+  </div>
 
-  <!-- أدوات المعلم -->
-  <section id="tools">
-    <h2>أدوات صناعة الدورات</h2>
-    <p>نقدّم لك أدوات قوية لإنشاء محتوى تعليمي احترافي يشمل الفيديو، الملفات، الاختبارات، والتقارير الذكية.</p>
-  </section>
-
-  <!-- الباقات (رابط فقط الآن) -->
-  <section id="plans">
-    <h2>الباقات</h2>
-    <p>تعرّف على باقاتنا وخيارات العمولة المناسبة لك <a href="/pricing.html">من هنا</a>.</p>
-  </section>
+  <div class="section" id="payments">
+    <h2>طرق الدفع</h2>
+    <p>نقبل أهم وسائل الدفع لتسهيل عملياتك.</p>
+    <div class="payment-logos">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Pay">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/STC_Pay_Logo.svg" alt="STC Pay">
+    </div>
+  </div>
 
   <script>
-    function toggleSidebar() {
-      document.getElementById("sidebar").classList.toggle("open");
+    function toggleMenu() {
+      document.getElementById("sideMenu").classList.toggle("open");
+    }
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+      toggleMenu();
+    }
+
+    function changeLanguage() {
+      alert("سيتم تحويل اللغة إلى الإنجليزية (وظيفة تجريبية)");
+      // هنا تقدر تستخدم window.location.href = 'index-en.html' إذا كان فيه نسخة إنجليزية
     }
   </script>
 
