@@ -1,97 +1,92 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>منصة فصل</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
-      color: #1a1a1a;
+      font-family: 'Tajawal', sans-serif;
+      background: #f9f9f9;
+      color: #0d2c44;
     }
 
-    header {
-      background-color: #003f5c;
-      color: white;
-      padding: 15px 30px;
-      text-align: right;
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .container {
+    /* الهيدر الثابت */
+    .header {
+      position: sticky;
+      top: 0;
+      background-color: #eaf6f6;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 40px 20px;
-      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    .section {
-      background-color: #ffffff;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 30px;
-      width: 300px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-      text-align: center;
-    }
-
-    .section h2 {
-      color: #003f5c;
-      margin-bottom: 20px;
-    }
-
-    .section p {
-      font-size: 15px;
-      margin-bottom: 20px;
-      color: #555;
-    }
-
-    .section a {
-      text-decoration: none;
-      background-color: #003f5c;
-      color: white;
-      padding: 10px 25px;
-      border-radius: 6px;
+    .header .logo {
+      font-size: 24px;
       font-weight: bold;
-      transition: 0.2s;
     }
 
-    .section a:hover {
-      background-color: #005b85;
+    .header .header-btn {
+      background-color: #0d2c44;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
     }
 
-    @media (max-width: 700px) {
-      .container {
-        flex-direction: column;
-        align-items: center;
-      }
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px 60px;
+    }
+
+    h2 {
+      margin-bottom: 40px;
+      font-size: 26px;
+    }
+
+    .btn {
+      background-color: #0d2c44;
+      color: white;
+      border: none;
+      padding: 16px 30px;
+      margin: 10px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 240px;
+      transition: background-color 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #134b6c;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    منصة فصل
-  </header>
+  <!-- الهيدر -->
+  <div class="header">
+    <div class="logo">فصل</div>
+    <button class="header-btn" onclick="window.location.href='/signup-teacher'">أنشئ دورتك</button>
+  </div>
 
-  <div class="container">
-
-    <div class="section">
-      <h2>المعلم</h2>
-      <p>أنشئ دورتك، وارفع ملفاتك، وابدأ البث المباشر وتابع الطلاب بسهولة.</p>
-      <a href="register.html">تسجيل كمعلم</a>
-    </div>
-
-    <div class="section">
-      <h2>الطالب</h2>
-      <p>سجل دخولك لمتابعة دروسك، مشاهدة الشروحات، والالتحاق بالبثوث المباشرة.</p>
-      <a href="register.html">تسجيل كطالب</a>
-    </div>
-
+  <!-- المحتوى الرئيسي -->
+  <div class="main">
+    <h2>إنشاء حساب جديد</h2>
+    <button class="btn" onclick="window.location.href='/signup-teacher'">أنشئ دورتك</button>
+    <button class="btn" onclick="window.location.href='/signup-student'">ابدأ التعلّم</button>
   </div>
 
 </body>
