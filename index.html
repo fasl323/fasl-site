@@ -14,21 +14,14 @@
 
     .header {
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start; /* الشعار يصير يسار */
       align-items: center;
-      padding: 20px 30px;
-      font-size: 26px;
-      font-weight: 800;
+      padding: 14px 24px;
+      background-color: #0d2c44;
     }
 
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-area img {
-      width: 36px;
+    .header img {
+      width: 40px;
       height: auto;
     }
 
@@ -81,10 +74,7 @@
 
   <!-- الهيدر -->
   <div class="header">
-    <div class="logo-area">
-      <img src="logo.png" alt="شعار فصل">
-      <span>فصل</span>
-    </div>
+    <img src="logo.png" alt="شعار فصل">
   </div>
 
   <!-- المحتوى -->
